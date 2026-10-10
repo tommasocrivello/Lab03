@@ -20,6 +20,8 @@ def main():
 
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
+            deposito.responsabile=nuovo_responsabile
+            print("responsabile aggiornato con successo")
             # TODO: Aggiorna responsabile nel sistema
 
         elif scelta == "2":

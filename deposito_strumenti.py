@@ -1,11 +1,23 @@
+from strumento import Strumento
 class DepositoStrumenti:
     def __init__(self, nome, responsabile):
         """Inizializza gli attributi e le strutture dati"""
         # TODO
+        self.nome = nome
+        self.responsabile = responsabile
+        self.strumenti=[]
 
     def carica_file_strumenti(self, file_path):
         """Carica gli strumenti dal file"""
         # TODO
+        try:
+            with open(file_path, "r") as filein:
+                for line in filein:
+                    campi=line.strip().split(",")
+                    s=Strumento(campi[0],campi[1],campi[2],campi[3],campi[4])
+                    self.strumenti.append(s)
+        except FileNotFoundError:
+            print("File non esistente")
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
         """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
