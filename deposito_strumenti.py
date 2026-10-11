@@ -14,10 +14,10 @@ class DepositoStrumenti:
             with open(file_path, "r") as filein:
                 for line in filein:
                     campi=line.strip().split(",")
-                    s=Strumento(campi[0],campi[1],campi[2],campi[3],campi[4])
+                    s=Strumento(campi[0],campi[1],campi[2],int(campi[3]),float(campi[4]))
                     self.strumenti.append(s)
         except FileNotFoundError:
-            print("File non esistente")
+            raise FileNotFoundError(f"Errore: Il file '{file_path}' non esiste")
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
         """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
