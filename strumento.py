@@ -5,3 +5,6 @@ class Strumento:
         self.marca = marca
         self.annoAcquisto = annoAcquisto
         self.valore = valore
+
+    def __str__(self):
+        return f"{self.codiceUnivoco} {self.tipo} {self.marca} {self.annoAcquisto} {self.valore}"
