@@ -49,7 +49,7 @@ class DepositoStrumenti:
         if not strumento_trovato:
             raise Exception(f"Lo strumento {id_strumento} non è presente nel sistema.")
         for p in self.prestiti:
-            if p.id_strumento == id_strumento:
+            if p.idStrumento == id_strumento:
                 raise Exception(f"Lo strumento {id_strumento} è già attualmente in prestito.")
         id_nuovo_prestito = str(len(self.prestiti) + 1)
         nuovoPrestito = Prestito("P"+id_nuovo_prestito, data, id_strumento, cognome_allievo)
